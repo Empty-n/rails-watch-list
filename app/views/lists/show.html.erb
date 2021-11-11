@@ -1,0 +1,9 @@
+<h1>coucou</h1>
+<% @list.bookmarks.each do |bookmark|%>
+  <%= bookmark.comment%>
+  <%=bookmark.movie.title%>
+  <br>
+  <%=bookmark.movie.overview%>
+  <hr>
+<%end%>
+<%= link_to 'add a new film', new_list_bookmark_path(@list), class: "btn btn-primary" %></p>
