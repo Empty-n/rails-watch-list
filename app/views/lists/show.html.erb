@@ -1,9 +1,16 @@
-<h1>coucou</h1>
-<% @list.bookmarks.each do |bookmark|%>
-  <%= bookmark.comment%>
-  <%=bookmark.movie.title%>
-  <br>
-  <%=bookmark.movie.overview%>
-  <hr>
-<%end%>
+<h1><%= @list.name %></h1>
+<div class="cards">
+  <% @list.bookmarks.each do |bookmark|%>
+    <div class="card-trip">
+      <%= image_tag "#{bookmark.movie.poster_url}", height: 200, width: 150%>
+      <div class="card-trip-infos">
+        <div>
+          <h2><%=bookmark.movie.title%></h2>
+          <p><%=bookmark.movie.overview%></p>
+        </div>
+      </div>
+        <h2 class="card-trip-pricing"> <%= bookmark.comment%></h2>
+    </div>
+  <%end%>
+</div>
 <%= link_to 'add a new film', new_list_bookmark_path(@list), class: "btn btn-primary" %></p>
